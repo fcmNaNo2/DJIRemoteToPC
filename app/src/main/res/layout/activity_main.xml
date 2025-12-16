@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:background="#1a1a2e">
+
+    <!-- 左侧：摇杆和拨轮显示 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="遥控器数据"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- 摇杆数据 -->
+        <TextView
+            android:id="@+id/tvLeftStick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="左摇杆: (0, 0)"
+            android:textColor="#4fc3f7"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvRightStick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="右摇杆: (0, 0)"
+            android:textColor="#4fc3f7"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 拨轮数据 -->
+        <TextView
+            android:id="@+id/tvLeftDial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="左拨轮: 0"
+            android:textColor="#81c784"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvRightDial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="右拨轮: 0"
+            android:textColor="#81c784"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 按钮状态 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvC1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C1: 释放"
+                android:textColor="#ffb74d"
+                android:textSize="16sp"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tvC2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C2: 释放"
+                android:textColor="#ffb74d"
+                android:textSize="16sp"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/tvC3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C3: 释放"
+                android:textColor="#ffb74d"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvGoHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返航: 释放"
+            android:textColor="#ef5350"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <!-- 右侧：设置和状态 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UDP 设置"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- 目标 IP -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="目标 IP: "
+                android:textColor="#ffffff"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etTargetIP"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="192.168.1.100"
+                android:textColor="#ffffff"
+                android:backgroundTint="#4fc3f7"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <!-- 目标端口 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="端口: "
+                android:textColor="#ffffff"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etTargetPort"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="9999"
+                android:textColor="#ffffff"
+                android:backgroundTint="#4fc3f7"
+                android:inputType="number"/>
+        </LinearLayout>
+
+        <!-- 开始/停止按钮 -->
+        <Button
+            android:id="@+id/btnStartStop"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="开始发送"
+            android:textSize="18sp"
+            android:backgroundTint="#4caf50"/>
+
+        <!-- 状态显示 -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="状态: 等待初始化..."
+            android:textColor="#9e9e9e"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
